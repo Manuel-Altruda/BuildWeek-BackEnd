@@ -1,5 +1,7 @@
 package com.epicode.classes;
 
+import java.time.LocalDate;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,14 +9,17 @@ import javax.persistence.*;
 public class DistributoreAutomatico extends RivenditoreAutorizzato{
 	
 private boolean attivo;
+
 public DistributoreAutomatico() {}
-public DistributoreAutomatico(boolean attivo) {
+
+public DistributoreAutomatico(int carteDaViaggioVendute, LocalDate dataEmissione, boolean attivo) {
+	super(carteDaViaggioVendute, dataEmissione);
 	this.attivo = attivo;
 }
 
 @Override
 public String toString() {
-	return "DistributoreAutomatico [attivo= " + attivo + "]";
+	return "DistributoreAutomatico [attivo=" + attivo + "]";
 }
 
 public void stampaBiglietto() {
