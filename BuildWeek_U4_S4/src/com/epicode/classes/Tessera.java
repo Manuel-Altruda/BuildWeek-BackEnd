@@ -4,11 +4,12 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
-
+@Entity
 public class Tessera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected long id;
+	
 	private LocalDate dataAttivazione;
 	private LocalDate dataScadenza;
 	private boolean validita;
@@ -23,6 +24,10 @@ public class Tessera {
 	}
 	
 	public Tessera() {}
+	
+	public long getId() {
+        return id;
+    }
 
 	public LocalDate getDataAttivazione() {
 		return dataAttivazione;

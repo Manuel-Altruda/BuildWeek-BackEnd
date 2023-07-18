@@ -8,8 +8,9 @@ import javax.persistence.*;
 @Entity
 public class Biglietto extends CartaDaViaggio {
 	private boolean obliterato;
-	@ManyToOne
-	private Utente utente;
+	  @OneToOne
+	    @JoinColumn(name = "utente_id")
+	    private Utente utente;
 
 	public Biglietto(LocalDate dataEmissione, RivenditoreAutorizzato rivenditoreAutorizzato, boolean obliterato,
 			Utente utente) {

@@ -13,7 +13,7 @@ import com.epicode.classes.Utente;
 public class UtenteDAO {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
-	EntityManager em = emf.createEntityManager();
+	private static EntityManager em = emf.createEntityManager();
 	
 	
 	public void saveUser(Utente utente) {

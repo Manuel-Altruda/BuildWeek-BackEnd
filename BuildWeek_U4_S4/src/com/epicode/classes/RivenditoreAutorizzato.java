@@ -15,14 +15,14 @@ public class RivenditoreAutorizzato {
 	private LocalDate dataEmissione;
 	//protected boolean apertura;
 	
-	@OneToMany
-	private List<CartaDaViaggio> lista = new ArrayList();
+	@OneToMany(mappedBy = "rivenditoreAutorizzato")
+    private List<CartaDaViaggio> lista = new ArrayList<>();
 
 	public RivenditoreAutorizzato() {}
 
-	public RivenditoreAutorizzato( LocalDate dataEmissione) {
+	public RivenditoreAutorizzato(int carteDaViaggioVendute, LocalDate dataEmissione) {
 		super();
-		this.carteDaViaggioVendute = 0;
+		this.carteDaViaggioVendute = carteDaViaggioVendute;
 		this.dataEmissione = dataEmissione;
 	}
 

@@ -20,7 +20,6 @@ public abstract class CartaDaViaggio {
 
 
 	public CartaDaViaggio(LocalDate dataEmissione, RivenditoreAutorizzato rivenditoreAutorizzato) {
-		super();
 		this.dataEmissione = dataEmissione;
 		this.rivenditoreAutorizzato = rivenditoreAutorizzato;
 	}
@@ -31,9 +30,9 @@ public abstract class CartaDaViaggio {
 	}
 
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	//public void setId(long id) {
+		//this.id = id;
+	//}
 	
 	
 	public LocalDate getDataEmissione() {
