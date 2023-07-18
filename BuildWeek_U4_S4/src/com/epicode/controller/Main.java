@@ -20,7 +20,24 @@ public class Main {
 		RivenditoreAutorizzatoDAO rivenditoreAutorizzatoDAO = new RivenditoreAutorizzatoDAO();
 		UtenteDAO utenteDAO = new UtenteDAO();
 		CartaDaViaggioDAO cartaDaViaggioDAO = new CartaDaViaggioDAO();
+//		
+//		RivenditoreAutorizzato r1 = new RivenditoreAutorizzato(LocalDate.of(2023, 7, 18));
+//		RivenditoreAutorizzato r2 = new RivenditoreAutorizzato(LocalDate.of(2022, 6, 19));
+//		
+//		Utente utente1 = new Utente("Marco", "Sossi");
+//		Utente utente2 = new Utente("Marie", "Cossa");
+//		
+//		Biglietto b1 = new Biglietto(LocalDate.of(2023, 9, 10), r1 , true , utente1);
+//		Biglietto b2 = new Biglietto(LocalDate.of(2023, 10, 11), r2 , false , utente2);
+//		
+//		rivenditoreAutorizzatoDAO.saveRivenditoreAutorizzato(r1);
+//		rivenditoreAutorizzatoDAO.saveRivenditoreAutorizzato(r2);
+//		
+//		utenteDAO.saveUser(utente1);
+//		utenteDAO.saveUser(utente2);
+		utenteDAO.deleteUser(2);
 		
+<<<<<<< HEAD
 		RivenditoreAutorizzato r1 = new RivenditoreAutorizzato(10, LocalDate.of(2023, 7, 18));
 		RivenditoreAutorizzato r2 = new RivenditoreAutorizzato(150, LocalDate.of(2022, 6, 19));
 		
@@ -38,6 +55,10 @@ public class Main {
 		
 		//cartaDaViaggioDAO.saveCartaDaViaggio(b1);
 		//cartaDaViaggioDAO.saveCartaDaViaggio(b2);
+=======
+//		cartaDaViaggioDAO.saveCartaDaViaggio(b1);
+//		cartaDaViaggioDAO.saveCartaDaViaggio(b2);
+>>>>>>> 1079780c95b1e76dccd77dd42c21ef7da7d3cd38
 		
 		//utenteDAO.deleteUser(2);
 		

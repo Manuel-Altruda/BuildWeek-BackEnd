@@ -1,5 +1,6 @@
 package com.epicode.DAO;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
@@ -21,4 +22,17 @@ public class AbbonamentoDAO {
 	    query.setParameter("dataScadenza", carta.dat);
 	    Abbonamento liliPad = (Abbonamento) query.getSingleResult();
 	}
+=======
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class AbbonamentoDAO {
+
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
+	EntityManager em = emf.createEntityManager();
+	
+	
+	
+>>>>>>> 1079780c95b1e76dccd77dd42c21ef7da7d3cd38
 }

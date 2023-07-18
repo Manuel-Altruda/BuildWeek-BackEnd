@@ -36,6 +36,8 @@ public class DistributoreAutomaticoDAO {
 		query.setParameter("attivo", acceso);
 		return query.getResultList();
 		
-	};
+	}
+	
+
 
 }

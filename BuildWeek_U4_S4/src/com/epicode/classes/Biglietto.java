@@ -41,5 +41,5 @@ public class Biglietto extends CartaDaViaggio {
 	public String toString() {
 		return "Biglietto [obliterato=" + obliterato + ", utente=" + utente + "]";
 	}
-	
+	//rivalutare
 }
