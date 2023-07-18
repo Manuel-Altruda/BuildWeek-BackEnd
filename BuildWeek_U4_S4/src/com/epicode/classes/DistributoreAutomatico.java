@@ -12,8 +12,8 @@ private boolean attivo;
 
 public DistributoreAutomatico() {}
 
-public DistributoreAutomatico(int carteDaViaggioVendute, LocalDate dataEmissione, boolean attivo) {
-	super(carteDaViaggioVendute, dataEmissione);
+public DistributoreAutomatico(LocalDate dataEmissione, boolean attivo) {
+	super(dataEmissione);
 	this.attivo = attivo;
 }
 

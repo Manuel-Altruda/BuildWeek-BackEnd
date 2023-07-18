@@ -20,14 +20,15 @@ public class RivenditoreAutorizzato {
 
 	public RivenditoreAutorizzato() {}
 
-	public RivenditoreAutorizzato(int carteDaViaggioVendute, LocalDate dataEmissione) {
+	public RivenditoreAutorizzato( LocalDate dataEmissione) {
 		super();
-		this.carteDaViaggioVendute = carteDaViaggioVendute;
+		this.carteDaViaggioVendute = 0;
 		this.dataEmissione = dataEmissione;
 	}
 
 	public long getId() {
 		return id;
+		
 	}
 
 	public void setId(long id) {

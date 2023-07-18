@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import com.epicode.enums.Periodicita;
 
+@Entity
 public class Abbonamento extends CartaDaViaggio {
 	@Enumerated(EnumType.STRING)
 	private Periodicita periodicita;

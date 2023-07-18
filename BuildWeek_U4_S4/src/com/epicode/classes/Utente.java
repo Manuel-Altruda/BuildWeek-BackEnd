@@ -10,6 +10,7 @@ protected long id;
 protected String nome;
 protected String cognome;
 
+
 //OneToOne
 // Tessera
 
