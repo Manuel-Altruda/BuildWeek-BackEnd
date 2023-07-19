@@ -12,8 +12,8 @@ private boolean attivo;
 
 public DistributoreAutomatico() {}
 
-public DistributoreAutomatico(LocalDate dataEmissione, boolean attivo) {
-	super(dataEmissione);
+public DistributoreAutomatico(LocalDate dataEmissione, int carteDaViaggioVendute, boolean attivo) {
+	super(carteDaViaggioVendute, dataEmissione);
 	this.attivo = attivo;
 }
 
@@ -29,6 +29,5 @@ public void stampaBiglietto() {
 		System.out.println("Distributore Automatico fuori servizio!");
 	}
 }
-
 
 }

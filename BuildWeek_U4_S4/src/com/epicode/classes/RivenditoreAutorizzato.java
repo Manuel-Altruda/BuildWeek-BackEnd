@@ -20,7 +20,7 @@ public class RivenditoreAutorizzato {
 
 	public RivenditoreAutorizzato() {}
 
-	public RivenditoreAutorizzato( LocalDate dataEmissione) {
+	public RivenditoreAutorizzato( int carteDaViaggioVendute, LocalDate dataEmissione) {
 		super();
 		this.carteDaViaggioVendute = 0;
 		this.dataEmissione = dataEmissione;
