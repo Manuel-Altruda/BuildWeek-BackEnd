@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -59,9 +58,8 @@ public class CartaDaViaggioDAO {
 	}
 	
 	public int getByDate(LocalDate dataIniziale, LocalDate dataFinale, RivenditoreAutorizzato r ) {
-	
 		
-	Query query = em.createQuery("SELECT c FROM CartaDaViaggio c WHERE c.dataEmissione > :dataIniziale AND c.dataEmissione < :dataFinale");
+	Query query = em.createQuery("SELECT c FROM CartaDaViaggio WHERE c.dataEmissione > :dataIniziale AND c.dataEmissione < :dataFinale");
 	query.setParameter("dataIniziale" , dataIniziale );
 	query.setParameter("dataFinale", dataFinale);
 	List<CartaDaViaggio> resultList = query.getResultList();
@@ -72,5 +70,5 @@ public class CartaDaViaggioDAO {
 	
 	}
 	
-	
+	public static void CartaDaViaggio () {};
 }

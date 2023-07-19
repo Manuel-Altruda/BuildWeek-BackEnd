@@ -1,5 +1,7 @@
 package com.epicode.classes;
 
-public class Autobus {
+public class Autobus extends MezzoTrasporto {
+	
+	int ProvaGit;
 
 }
