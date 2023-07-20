@@ -102,6 +102,10 @@ public class RottaStradale {
 		return "RottaStradale [coordinateTratta=" + coordinateTratta + ", zonaPartenza=" + zonaPartenza + ", capolinea="
 				+ capolinea + ", orarioPartenza=" + orarioPartenza + ", mezzoTrasporto=" + mezzoTrasporto + "]";
 	}
+
+	public String getIdRotta() {
+		return getIdRotta();
+	}
 	
 	
 }

@@ -3,8 +3,7 @@ package com.epicode.classes;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -17,7 +16,8 @@ import com.epicode.enums.Stato;
 public abstract class MezzoTrasporto {
 	
 @Id
-private String targa;	
+private Long targa;
+
 private int capienzaPersone;
 private Stato stato;
 private LocalDate inizioServizio;
@@ -28,7 +28,7 @@ private boolean validazione;
 
 public MezzoTrasporto(){}
 
-public MezzoTrasporto(String targa, int capienzaPersone, Stato stato, LocalDate inizioServizio, LocalDate fineServizio,
+public MezzoTrasporto(Long targa, int capienzaPersone, Stato stato, LocalDate inizioServizio, LocalDate fineServizio,
 		LocalDate inizioManutenzione, LocalDate fineManutenzione, boolean validazione) {
 	super();
 	this.targa = targa;
@@ -41,12 +41,12 @@ public MezzoTrasporto(String targa, int capienzaPersone, Stato stato, LocalDate 
 	this.validazione = validazione;
 }
 
-public String getTarga() {
+public Long getTarga() {
 	return targa;
 }
 
-public void setTarga(String targa) {
-	this.targa = targa;
+public void setTarga(Long i) {
+	this.targa = i;
 }
 
 public int getCapienzaPersone() {

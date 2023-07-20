@@ -25,11 +25,11 @@ public class RivenditoreAutorizzato {
 		this.dataEmissione = dataEmissione;
 	}
 
-	public long getId() {
+	public long getRivenditoreById() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setRivenditoreById(long id) {
 		this.id = id;
 	}
 

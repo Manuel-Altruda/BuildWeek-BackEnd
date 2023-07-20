@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import com.epicode.classes.MezzoTrasporto;
 import com.epicode.enums.Stato;
 
-public class MezzoDiTrasportoDAO {
+public class MezzoTrasportoDAO {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
 	EntityManager em = emf.createEntityManager();
 

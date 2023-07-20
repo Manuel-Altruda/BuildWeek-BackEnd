@@ -1,13 +1,16 @@
 package com.epicode.DAO;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
+import com.epicode.classes.Abbonamento;
 import com.epicode.classes.Utente;
 
 public class UtenteDAO {
@@ -24,6 +27,8 @@ public class UtenteDAO {
     	System.out.println(utente);
 		
 	}
+	
+	public static void UtenteDAO() {};
 	
 	public void deleteUser (long id) {
 		
@@ -52,7 +57,13 @@ public class UtenteDAO {
 		
 	}
 	
+	public static boolean checkAbbonamentoValidita(Utente utente, EntityManager em) {
+        TypedQuery<Abbonamento> query = em.createQuery("SELECT a FROM Abbonamento a WHERE a.utente = :utente AND a.dataScadenza >= :today", Abbonamento.class)
+            .setParameter("utente", utente)
+            .setParameter("today", LocalDate.now());
+        List<Abbonamento> abbonamenti = query.getResultList();
+        return !abbonamenti.isEmpty();
+    }
 	
-	public static void UtenteDAO() {};
     
 }

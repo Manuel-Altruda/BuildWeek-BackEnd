@@ -2,20 +2,23 @@ package com.epicode.DAO;
 
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.epicode.classes.Abbonamento;
 import com.epicode.classes.CartaDaViaggio;
+import com.epicode.classes.RivenditoreAutorizzato;
 
 public class AbbonamentoDAO {
 	
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
-	EntityManager em = emf.createEntityManager();
+	static EntityManager em = emf.createEntityManager();
 	
 	
 
@@ -64,6 +67,18 @@ public class AbbonamentoDAO {
 		
 	}
 	
+	public static long countVenditeTotaliAbbonamento(LocalDate startDate, LocalDate endDate, EntityManager em2) {
+		TypedQuery<Long> query = em.createQuery("SELECT COUNT(a) FROM Abbonamento a WHERE a.dataEmissione BETWEEN :startDate AND :endDate", Long.class)
+	            .setParameter("startDate", startDate)
+	            .setParameter("endDate", endDate);
+	        return query.getSingleResult();
+	}
 	
-
+	public static long countVenditeRivenditore(RivenditoreAutorizzato rivenditore, LocalDate startDate, LocalDate endDate, EntityManager em) {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(a) FROM Abbonamento a WHERE a.rivenditoreAutorizzato = :rivenditore AND a.dataEmissione BETWEEN :startDate AND :endDate", Long.class)
+            .setParameter("rivenditore", rivenditore)
+            .setParameter("startDate", startDate)
+            .setParameter("endDate", endDate);
+        return query.getSingleResult();
+    }
 }

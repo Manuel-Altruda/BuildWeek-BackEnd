@@ -2,6 +2,10 @@ package com.epicode.controller;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +13,10 @@ import javax.persistence.EntityTransaction;
 
 import com.epicode.DAO.*;
 import com.epicode.classes.Abbonamento;
+import com.epicode.classes.Autobus;
 import com.epicode.classes.Biglietto;
 import com.epicode.classes.RivenditoreAutorizzato;
+import com.epicode.classes.RottaStradale;
 import com.epicode.classes.Tessera;
 import com.epicode.classes.Tram;
 import com.epicode.classes.Utente;
@@ -18,6 +24,7 @@ import com.epicode.enums.Periodicita;
 import com.epicode.enums.Stato;
 
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 
 
@@ -27,7 +34,11 @@ public class Main {
 	
 	public static void main(String[] args) throws SQLException {
 		 
-		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        
 		//RivenditoreAutorizzatoDAO rivenditoreAutorizzatoDAO = new RivenditoreAutorizzatoDAO();
 //		UtenteDAO utenteDAO = new UtenteDAO();
 		//CartaDaViaggioDAO cartaDaViaggioDAO = new CartaDaViaggioDAO();
@@ -96,17 +107,60 @@ public class Main {
 //		
 //		
 //		TesseraDAO tesseraDAO = new TesseraDAO();
-//        Tessera tessera = new Tessera(LocalDate.now());
-//        tesseraDAO.saveTessera(tessera);
+//      Tessera tessera = new Tessera(LocalDate.now());
+//      tesseraDAO.saveTessera(tessera);
         
-        MezzoDiTrasportoDAO mezzoDiTrasportoDAO = new MezzoDiTrasportoDAO();
+        MezzoTrasportoDAO mezzoTrasportoDAO = new MezzoTrasportoDAO();
         Tram tram = new Tram();
-        tram.setCapienzaPersone(100);
+        tram.setCapienzaPersone(50);
         tram.setStato(Stato.SERVIZIO);
-        tram.setTarga("AG48ADDS");
-        mezzoDiTrasportoDAO.saveMezzoDiTrasportoDAO(tram);
-	
-	}
-	
-	
+        tram.setTarga((long) 178625L);
+        mezzoTrasportoDAO.saveMezzoDiTrasportoDAO(tram);
+        
+        MezzoTrasportoDAO mezzoTrasportoDAO1 = new MezzoTrasportoDAO();
+        Autobus autobus = new Autobus();
+        tram.setCapienzaPersone(50);
+        tram.setStato(Stato.SERVIZIO);
+        tram.setTarga((long) 178625);
+        mezzoTrasportoDAO1.saveMezzoDiTrasportoDAO(autobus);
+        
+        try {
+            LocalDate startDate = LocalDate.of(2023, 1, 1);
+            LocalDate endDate = LocalDate.of(2023, 12, 31);
+
+            // Metodo per il conteggio delle vendite totali di biglietti e abbonamenti in un dato periodo di tempo
+            long totalSales = 0;
+			try {
+				totalSales = BigliettoDAO.countTotalSales(startDate, endDate, em) + AbbonamentoDAO.countVenditeTotaliAbbonamento(startDate, endDate, em);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+            System.out.println("Totale vendite nel periodo: " + totalSales);
+
+            // Metodo per il conteggio delle vendite totali di biglietti e abbonamenti per un punto di emissione in un dato periodo di tempo
+            RivenditoreAutorizzato rivenditore = em.find(RivenditoreAutorizzato.class, 1L); 
+            long salesForRivenditore = BigliettoDAO.countSalesForRivenditore(rivenditore, startDate, endDate, em) + AbbonamentoDAO.countVenditeRivenditore(rivenditore, startDate, endDate, em);
+            System.out.println("Vendite per il punto di emissione " + rivenditore.getLista() + ": " + salesForRivenditore);
+
+            // Metodo per il conteggio delle volte che un mezzo ha percorso una tratta in un dato periodo di tempo
+            /* DA SISTEMARE PERCHE' DA ERRORE */
+            //Tram tram1 = em.find(Tram.class, 1L);  
+            //RottaStradale tratta = em.find(RottaStradale.class, 1L);  
+            //int timesTramOnRoute = RottaStradaleDAO.countTimesTramOnRoute(tram, tratta, startDate, endDate, em);
+            //System.out.println("Tram " + tram1.getId() + " percorso la tratta " + tratta.getIdRotta() + " " + timesTramOnRoute + " volte.");
+
+            // Metodo per verificare la validità di un abbonamento in base al numero di tessera dell'utente
+            Utente utenteDaControllare = em.find(Utente.class, 1L);  
+            boolean isAbbonamentoValido = UtenteDAO.checkAbbonamentoValidita(utenteDaControllare, em);
+            System.out.println("L'abbonamento dell'utente " + utenteDaControllare.getId() + " è valido? " + isAbbonamentoValido);
+        } finally {
+            em.close();
+            emf.close();
+        }
+        
+        
+    }	
 }
+
+
