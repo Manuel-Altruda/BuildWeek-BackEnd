@@ -10,7 +10,9 @@ public abstract class CartaDaViaggio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@ManyToOne
 	private Utente utente;
+	
 	private LocalDate dataEmissione;
  
 	@ManyToOne

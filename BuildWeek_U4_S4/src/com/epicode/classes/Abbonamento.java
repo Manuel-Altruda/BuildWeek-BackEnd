@@ -11,7 +11,10 @@ public class Abbonamento extends CartaDaViaggio {
 	
 	@Enumerated(EnumType.STRING)
 	private Periodicita periodicita;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Utente utente;
+	
 	private LocalDate dataScadenza;
 	
 	public Abbonamento(Periodicita periodicita, LocalDate dataScadenza, Utente utente) {

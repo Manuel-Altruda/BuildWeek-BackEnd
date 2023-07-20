@@ -16,16 +16,25 @@ public class MezzoDiTrasportoDAO {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
 	EntityManager em = emf.createEntityManager();
 
-	public void saveCartaDaViaggio(MezzoTrasporto c) throws SQLException {	
-
-		em.getTransaction().begin();
-    	em.persist(c);
-    	em.getTransaction().commit();
-    	System.out.println(c);
+	public void saveMezzoDiTrasportoDAO(MezzoTrasporto mt) throws SQLException {	
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
+		EntityManager em = emf.createEntityManager();
+		try {
+            em.getTransaction().begin();
+            em.persist(mt);
+            em.getTransaction().commit();
+            System.out.println(mt);
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+            emf.close();
+        }
 		
 	}
 	
-	public void deleteCartaDaViaggio (long id) throws SQLException {
+	public void deleteMezzoDiTrasportoDAO (long id) throws SQLException {
 			
 			em.getTransaction().begin();
 			MezzoTrasporto carta = em.find(MezzoTrasporto.class, id);
