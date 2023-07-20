@@ -40,7 +40,7 @@ public class MezzoDiTrasportoDAO {
 			MezzoTrasporto carta = em.find(MezzoTrasporto.class, id);
 	    	em.remove(carta);
 	    	em.getTransaction().commit();
-			System.out.println("Carta da viaggio cancellato correttamente");
+			System.out.println("Mezzo di trasporto cancellato correttamente");
 			
 		}
 	

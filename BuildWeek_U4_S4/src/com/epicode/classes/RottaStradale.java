@@ -1,5 +1,7 @@
 package com.epicode.classes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,101 +17,91 @@ public class RottaStradale {
 	private String zonaPartenza;
 	private String capolinea;
 	private int tempoMedioPercorrenza;
-	private int tempoDiPercorrenza;
-	private int ripetizioniPercorrenza;
-
+	private LocalDate orarioPartenza;
+	private LocalDate orarioArrivo;
 	
 	@ManyToOne
 	private MezzoTrasporto mezzoTrasporto;
-
-
+	
+	
+	
 	public RottaStradale(long coordinateTratta, String zonaPartenza, String capolinea, int tempoMedioPercorrenza,
-			int tempoDiPercorrenza, int ripetizioniPercorrenza, MezzoTrasporto mezzoTrasporto) {
+			LocalDate orarioPartenza, LocalDate orarioArrivo, MezzoTrasporto mezzoTrasporto) {
 		super();
 		this.coordinateTratta = coordinateTratta;
 		this.zonaPartenza = zonaPartenza;
 		this.capolinea = capolinea;
 		this.tempoMedioPercorrenza = tempoMedioPercorrenza;
-		this.tempoDiPercorrenza = tempoDiPercorrenza;
-		this.ripetizioniPercorrenza = ripetizioniPercorrenza;
+		this.orarioPartenza = orarioPartenza;
+		this.orarioArrivo = orarioArrivo;
 		this.mezzoTrasporto = mezzoTrasporto;
 	}
-
 
 	public RottaStradale() {
 		super();
 	}
 
-
 	public long getCoordinateTratta() {
 		return coordinateTratta;
 	}
-
 
 	public void setCoordinateTratta(long coordinateTratta) {
 		this.coordinateTratta = coordinateTratta;
 	}
 
-
 	public String getZonaPartenza() {
 		return zonaPartenza;
 	}
-
 
 	public void setZonaPartenza(String zonaPartenza) {
 		this.zonaPartenza = zonaPartenza;
 	}
 
-
 	public String getCapolinea() {
 		return capolinea;
 	}
-
 
 	public void setCapolinea(String capolinea) {
 		this.capolinea = capolinea;
 	}
 
-
 	public int getTempoMedioPercorrenza() {
 		return tempoMedioPercorrenza;
 	}
-
 
 	public void setTempoMedioPercorrenza(int tempoMedioPercorrenza) {
 		this.tempoMedioPercorrenza = tempoMedioPercorrenza;
 	}
 
-
-	public int getTempoDiPercorrenza() {
-		return tempoDiPercorrenza;
+	public LocalDate getOrarioPartenza() {
+		return orarioPartenza;
 	}
 
-
-	public void setTempoDiPercorrenza(int tempoDiPercorrenza) {
-		this.tempoDiPercorrenza = tempoDiPercorrenza;
+	public void setOrarioPartenza(LocalDate orarioPartenza) {
+		this.orarioPartenza = orarioPartenza;
 	}
 
-
-	public int getRipetizioniPercorrenza() {
-		return ripetizioniPercorrenza;
+	public LocalDate getOrarioArrivo() {
+		return orarioArrivo;
 	}
 
-
-	public void setRipetizioniPercorrenza(int ripetizioniPercorrenza) {
-		this.ripetizioniPercorrenza = ripetizioniPercorrenza;
+	public void setOrarioArrivo(LocalDate orarioArrivo) {
+		this.orarioArrivo = orarioArrivo;
 	}
-
 
 	public MezzoTrasporto getMezzoTrasporto() {
 		return mezzoTrasporto;
 	}
 
-
 	public void setMezzoTrasporto(MezzoTrasporto mezzoTrasporto) {
 		this.mezzoTrasporto = mezzoTrasporto;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "RottaStradale [coordinateTratta=" + coordinateTratta + ", zonaPartenza=" + zonaPartenza + ", capolinea="
+				+ capolinea + ", orarioPartenza=" + orarioPartenza + ", mezzoTrasporto=" + mezzoTrasporto + "]";
+	}
 	
 	
 }
