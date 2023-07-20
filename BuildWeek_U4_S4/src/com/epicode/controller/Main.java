@@ -29,7 +29,7 @@ public class Main {
 		 
 		
 		//RivenditoreAutorizzatoDAO rivenditoreAutorizzatoDAO = new RivenditoreAutorizzatoDAO();
-		UtenteDAO utenteDAO = new UtenteDAO();
+//		UtenteDAO utenteDAO = new UtenteDAO();
 		//CartaDaViaggioDAO cartaDaViaggioDAO = new CartaDaViaggioDAO();
 	        
 //		
@@ -53,9 +53,9 @@ public class Main {
 		//RivenditoreAutorizzato r1 = new RivenditoreAutorizzato(120, LocalDate.of(2023, 7, 18));
 		//RivenditoreAutorizzato r2 = new RivenditoreAutorizzato(150, LocalDate.of(2022, 6, 19));
 		
-		
-		Utente utente1 = new Utente("Mariaca", "Sossialla");
-		Utente utente2 = new Utente("Maridell", "Cuozzamma");
+//		
+//		Utente utente1 = new Utente("Mariaca", "Sossialla");
+//		Utente utente2 = new Utente("Maridell", "Cuozzamma");
 		
 		//Biglietto b1 = new Biglietto(LocalDate.of(2020, 5, 11), r1 , true , utente1);
 		//Biglietto b2 = new Biglietto(LocalDate.of(2021, 11, 12), r2 , false , utente2);
@@ -63,8 +63,8 @@ public class Main {
 		//rivenditoreAutorizzatoDAO.saveRivenditoreAutorizzato(r1);
 		//rivenditoreAutorizzatoDAO.saveRivenditoreAutorizzato(r2);
 		
-		utenteDAO.saveUser(utente1);
-		utenteDAO.saveUser(utente2);
+//		utenteDAO.saveUser(utente1);
+//		utenteDAO.saveUser(utente2);
 		
 		//cartaDaViaggioDAO.saveCartaDaViaggio(b1);
 		//cartaDaViaggioDAO.saveCartaDaViaggio(b2);
@@ -81,23 +81,23 @@ public class Main {
 		
 		//cartaDaViaggioDAO.getByDate(LocalDate.of(2021, 7, 18),  LocalDate.of(2024, 5, 18), r1);
 		
-		 
-	   	Utente utente = new Utente("Marcio", "Giordania");
-	   	Tessera tessera1 = null;
-		utente.setTessera(tessera1);
-	   	utenteDAO.saveUser(utente);
-		
-		AbbonamentoDAO abbonamentoDAO = new AbbonamentoDAO();
-		Abbonamento a1 = new Abbonamento(Periodicita.SETTIMANALE, LocalDate.now().plusDays(7), utente1);
-		abbonamentoDAO.saveAbbonamento(a1);
-		
-		Abbonamento a2 = new Abbonamento(Periodicita.MENSILE, LocalDate.now().plusDays(7), utente2);
-		abbonamentoDAO.saveAbbonamento(a2);
-		
-		
-		TesseraDAO tesseraDAO = new TesseraDAO();
-        Tessera tessera = new Tessera(LocalDate.now());
-        tesseraDAO.saveTessera(tessera);
+//		 
+//	   	Utente utente = new Utente("Marcio", "Giordania");
+//	   	Tessera tessera1 = null;
+//		utente.setTessera(tessera1);
+//	   	utenteDAO.saveUser(utente);
+//		
+//		AbbonamentoDAO abbonamentoDAO = new AbbonamentoDAO();
+//		Abbonamento a1 = new Abbonamento(Periodicita.SETTIMANALE, LocalDate.now().plusDays(7), utente1);
+//		abbonamentoDAO.saveAbbonamento(a1);
+//		
+//		Abbonamento a2 = new Abbonamento(Periodicita.MENSILE, LocalDate.now().plusDays(7), utente2);
+//		abbonamentoDAO.saveAbbonamento(a2);
+//		
+//		
+//		TesseraDAO tesseraDAO = new TesseraDAO();
+//        Tessera tessera = new Tessera(LocalDate.now());
+//        tesseraDAO.saveTessera(tessera);
         
         MezzoDiTrasportoDAO mezzoDiTrasportoDAO = new MezzoDiTrasportoDAO();
         Tram tram = new Tram();

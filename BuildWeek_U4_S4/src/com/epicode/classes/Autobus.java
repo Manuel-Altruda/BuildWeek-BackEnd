@@ -18,4 +18,5 @@ public class Autobus extends MezzoTrasporto {
 	}
 
 
+
 }

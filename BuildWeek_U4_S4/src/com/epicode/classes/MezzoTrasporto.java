@@ -17,7 +17,6 @@ import com.epicode.enums.Stato;
 public abstract class MezzoTrasporto {
 	
 @Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
 private String targa;	
 private int capienzaPersone;
 private Stato stato;
