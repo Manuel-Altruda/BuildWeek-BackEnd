@@ -11,12 +11,14 @@ public class Abbonamento extends CartaDaViaggio {
 	
 	@Enumerated(EnumType.STRING)
 	private Periodicita periodicita;
+	private Utente utente;
 	private LocalDate dataScadenza;
 	
-	public Abbonamento(Periodicita periodicita, LocalDate dataScadenza) {
+	public Abbonamento(Periodicita periodicita, LocalDate dataScadenza, Utente utente) {
 		super();
 		this.periodicita = periodicita;
 		this.dataScadenza = dataScadenza;
+		this.utente = utente;
 	}
 
 	public Abbonamento() {}
@@ -40,6 +42,14 @@ public class Abbonamento extends CartaDaViaggio {
 	@Override
 	public String toString() {
 		return "Abbonamento [periodicita=" + periodicita + ", dataScadenza=" + dataScadenza + "]";
+	}
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
 	}
 	
 }

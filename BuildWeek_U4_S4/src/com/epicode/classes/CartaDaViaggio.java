@@ -10,6 +10,7 @@ public abstract class CartaDaViaggio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private Utente utente;
 	private LocalDate dataEmissione;
  
 	@ManyToOne
@@ -19,8 +20,9 @@ public abstract class CartaDaViaggio {
 	public CartaDaViaggio() {}
 
 
-	public CartaDaViaggio(LocalDate dataEmissione, RivenditoreAutorizzato rivenditoreAutorizzato) {
+	public CartaDaViaggio(LocalDate dataEmissione, RivenditoreAutorizzato rivenditoreAutorizzato, Utente utente) {
 		this.dataEmissione = dataEmissione;
+		this.utente = utente;
 		this.rivenditoreAutorizzato = rivenditoreAutorizzato;
 	}
 
@@ -53,6 +55,16 @@ public abstract class CartaDaViaggio {
 	public String toString() {
 		return "CartaDaViaggio [id=" + id + ", dataEmissione=" + dataEmissione + ", rivenditoreAutorizzato="
 				+ rivenditoreAutorizzato + "]";
+	}
+
+
+	public Utente getUtente() {
+		return utente;
+	}
+
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
 	}
 
 

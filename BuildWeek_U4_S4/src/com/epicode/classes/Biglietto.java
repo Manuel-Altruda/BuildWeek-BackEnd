@@ -13,7 +13,7 @@ public class Biglietto extends CartaDaViaggio {
 
 	public Biglietto(LocalDate dataEmissione, RivenditoreAutorizzato rivenditoreAutorizzato, boolean obliterato,
 			Utente utente) {
-		super(dataEmissione, rivenditoreAutorizzato);
+		super(dataEmissione, rivenditoreAutorizzato, utente);
 		this.obliterato = obliterato;
 		this.utente = utente;
 	}
