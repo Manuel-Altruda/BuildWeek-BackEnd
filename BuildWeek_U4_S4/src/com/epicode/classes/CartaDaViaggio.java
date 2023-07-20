@@ -28,12 +28,6 @@ public abstract class CartaDaViaggio {
 	public long getId() {
 		return id;
 	}
-
-
-	//public void setId(long id) {
-		//this.id = id;
-	//}
-	
 	
 	public LocalDate getDataEmissione() {
 		return dataEmissione;

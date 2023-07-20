@@ -17,13 +17,14 @@ public class DistributoreAutomaticoDAO {
 	private static EntityManager em;
 	
 	public DistributoreAutomaticoDAO() {
+		
         emf = Persistence.createEntityManagerFactory("BuildWeek_U4_S4");
         em = emf.createEntityManager();
+        
     }
 	
 	public List<DistributoreAutomatico> dataEmissione (LocalDate dataEmissione){
 		
-		@SuppressWarnings("unchecked")
 		Query query = em.createQuery("SELECT de FROM DistributoreAutomatico de WHERE de.dataEmissione = :dataEmissione ", DistributoreAutomatico.class);
 		query.setParameter("dataEmissione", dataEmissione);
 		return query.getResultList();

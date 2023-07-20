@@ -35,7 +35,7 @@ public class Main {
 //		
 //		utenteDAO.saveUser(utente1);
 //		utenteDAO.saveUser(utente2);
-		utenteDAO.deleteUser(2);
+//	    utenteDAO.deleteUser(2);
 		
 
 		RivenditoreAutorizzato r1 = new RivenditoreAutorizzato(120, LocalDate.of(2023, 7, 18));
@@ -60,6 +60,7 @@ public class Main {
 //		cartaDaViaggioDAO.saveCartaDaViaggio(b1);
 //		cartaDaViaggioDAO.saveCartaDaViaggio(b2);
 
+		
 		
 		//utenteDAO.deleteUser(2);
 		

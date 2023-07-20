@@ -13,10 +13,9 @@ public class RivenditoreAutorizzato {
 	private long id;
 	private int carteDaViaggioVendute;
 	private LocalDate dataEmissione;
-	//protected boolean apertura;
 	
-	@OneToMany
-	private List<CartaDaViaggio> lista = new ArrayList();
+	@OneToMany(mappedBy = "rivenditoreAutorizzato")
+	private List<CartaDaViaggio> lista = new ArrayList<CartaDaViaggio>();
 
 	public RivenditoreAutorizzato() {}
 
@@ -28,7 +27,6 @@ public class RivenditoreAutorizzato {
 
 	public long getId() {
 		return id;
-		
 	}
 
 	public void setId(long id) {
@@ -52,6 +50,12 @@ public class RivenditoreAutorizzato {
 	}
 
 	public List<CartaDaViaggio> getLista() {
+		
+		
+		//AGGIUNGERE METODI!!!!   
+		
+		
+		
 		return lista;
 	}
 

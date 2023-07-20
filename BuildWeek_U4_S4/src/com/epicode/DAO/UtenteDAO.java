@@ -32,6 +32,7 @@ public class UtenteDAO {
     	em.remove(utente);
     	em.getTransaction().commit();
 		System.out.println("Utente cancellato correttamente");
+		
 	}
 	
 	public void getById (long id) {
@@ -53,7 +54,5 @@ public class UtenteDAO {
 	
 	
 	public static void UtenteDAO() {};
-	
-    
     
 }

@@ -1,8 +1,6 @@
 package com.epicode.DAO;
 
 
-import java.time.LocalDate;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,6 +19,8 @@ public class AbbonamentoDAO {
 		Query query = em.createQuery("SELECT u FROM CartaDaViaggio u WHERE u.dataScadenza = :dataScadenza");
 	    query.setParameter("dataScadenza", carta);
 	    Abbonamento liliPad = (Abbonamento) query.getSingleResult();
+	    System.out.println(liliPad);
+	    
 	}
 
 	
