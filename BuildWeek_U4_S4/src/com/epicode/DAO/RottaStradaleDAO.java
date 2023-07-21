@@ -107,13 +107,13 @@ public class RottaStradaleDAO {
         }
 	}
 	
-	public static int countTimesTramOnRoute(Tram tram, RottaStradale tratta, LocalDate startDate, LocalDate endDate, EntityManager em) {
-        TypedQuery<Long> query = em.createQuery("SELECT COUNT(r) FROM RottaStradale r WHERE r.mezzoTrasporto = :tram AND r = :tratta AND r.dataPartenza BETWEEN :startDate AND :endDate", Long.class)
+	public static Long countTimesTramOnRoute(Tram tram, RottaStradale tratta, long startTimeStamp, long endTimeStamp, EntityManager em) {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(r) FROM RottaStradale r WHERE r.mezzoTrasporto = :tram AND r = :tratta AND r.dataPartenza BETWEEN :dataPartenza AND :endDate", Long.class)
             .setParameter("tram", tram)
             .setParameter("tratta", tratta)
-            .setParameter("startDate", startDate)
-            .setParameter("endDate", endDate);
-        return query.getSingleResult().intValue();
+            .setParameter("dataPartenza", startTimeStamp)
+            .setParameter("endDate", endTimeStamp);
+        return (long) query.getSingleResult().intValue();
     }
 	
 	public double avgTempoMedioPercorrenzaByMezzoTrasporto(MezzoTrasporto mezzoTrasporto) {

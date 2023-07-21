@@ -15,15 +15,19 @@ public class Tram extends MezzoTrasporto {
 
 	}
 
-	public Tram(Long targa, int capienzaPersone, Stato stato, LocalDate inizioServizio, LocalDate fineServizio,
-			LocalDate inizioManutenzione, LocalDate fineManutenzione, boolean validazione) {
-		super(targa, capienzaPersone, stato, inizioServizio, fineServizio, inizioManutenzione, fineManutenzione, validazione);
+	
+
+	public Tram(Long targa, Long dataPartenza, Long endDate, int capienzaPersone, Stato stato, LocalDate inizioServizio,
+			LocalDate fineServizio, LocalDate inizioManutenzione, LocalDate fineManutenzione, boolean validazione) {
+		super(targa, dataPartenza, endDate, capienzaPersone, stato, inizioServizio, fineServizio, inizioManutenzione,
+				fineManutenzione, validazione);
 		
 	}
 
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+
+
+	public Long getTarga() {
+		return targa;
 	}
 
 }

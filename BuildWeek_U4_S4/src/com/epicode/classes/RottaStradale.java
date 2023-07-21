@@ -14,6 +14,10 @@ public class RottaStradale {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long coordinateTratta;
+	
+	private String tratta;
+	private long dataPartenza;
+	private long endDate;
 	private String zonaPartenza;
 	private String capolinea;
 	private int tempoMedioPercorrenza;
@@ -24,11 +28,14 @@ public class RottaStradale {
 	private MezzoTrasporto mezzoTrasporto;
 	
 	
-	
-	public RottaStradale(long coordinateTratta, String zonaPartenza, String capolinea, int tempoMedioPercorrenza,
-			LocalDate orarioPartenza, LocalDate orarioArrivo, MezzoTrasporto mezzoTrasporto) {
+	public RottaStradale(long coordinateTratta, String tratta, long dataPartenza, long endDate, String zonaPartenza,
+			String capolinea, int tempoMedioPercorrenza, LocalDate orarioPartenza, LocalDate orarioArrivo,
+			MezzoTrasporto mezzoTrasporto) {
 		super();
 		this.coordinateTratta = coordinateTratta;
+		this.tratta = tratta;
+		this.dataPartenza = dataPartenza;
+		this.endDate = endDate;
 		this.zonaPartenza = zonaPartenza;
 		this.capolinea = capolinea;
 		this.tempoMedioPercorrenza = tempoMedioPercorrenza;
@@ -105,6 +112,30 @@ public class RottaStradale {
 
 	public String getIdRotta() {
 		return getIdRotta();
+	}
+
+	public long getDataPartenza() {
+		return dataPartenza;
+	}
+
+	public void setDataPartenza(long dataPartenza) {
+		this.dataPartenza = dataPartenza;
+	}
+
+	public long getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(long endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getTratta() {
+		return tratta;
+	}
+
+	public void setTratta(String tratta) {
+		this.tratta = tratta;
 	}
 	
 	

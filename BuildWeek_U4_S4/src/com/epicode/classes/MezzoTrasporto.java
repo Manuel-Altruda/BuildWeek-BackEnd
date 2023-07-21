@@ -16,8 +16,9 @@ import com.epicode.enums.Stato;
 public abstract class MezzoTrasporto {
 	
 @Id
-private Long targa;
+protected Long targa;
 
+private Long dataPartenza;
 private int capienzaPersone;
 private Stato stato;
 private LocalDate inizioServizio;
@@ -26,12 +27,15 @@ private LocalDate inizioManutenzione;
 private LocalDate fineManutenzione;
 private boolean validazione;
 
+
+
 public MezzoTrasporto(){}
 
-public MezzoTrasporto(Long targa, int capienzaPersone, Stato stato, LocalDate inizioServizio, LocalDate fineServizio,
+public MezzoTrasporto(Long targa,Long dataPartenza, Long endDate, int capienzaPersone, Stato stato, LocalDate inizioServizio, LocalDate fineServizio,
 		LocalDate inizioManutenzione, LocalDate fineManutenzione, boolean validazione) {
 	super();
 	this.targa = targa;
+	this.dataPartenza = dataPartenza;
 	this.capienzaPersone = capienzaPersone;
 	this.stato = stato;
 	this.inizioServizio = inizioServizio;
@@ -103,6 +107,14 @@ public boolean isValidazione() {
 
 public void setValidazione(boolean validazione) {
 	this.validazione = validazione;
+}
+
+public Long getDataPartenza() {
+	return dataPartenza;
+}
+
+public void setDataPartenza(Long dataPartenza) {
+	this.dataPartenza = dataPartenza;
 };
 
 
